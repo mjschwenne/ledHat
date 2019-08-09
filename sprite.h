@@ -3,7 +3,7 @@
 
 #include <FastLED.h>
 
-#include "ledSetup.h"
+#include "matrix.h"
 
 class sprite {
 public:

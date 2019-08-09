@@ -1,30 +1,30 @@
-#include "rectangleMode.h"
+#include "modeRectangle.h"
 
-rectangleMode::rectangleMode(int rectCount, int rectSize):
+modeRectangle::modeRectangle(int rectCount, int rectSize):
   sRectCount(rectCount),
   sRectSize(rectSize)
   {
-    sRects = new rectangle * [sRectCount];
+    sRects = new spriteRectangle * [sRectCount];
     for(int x = 0; x < sRectCount; x++){
-      sRects[x] = new rectangle(sRectSize, sRectSize, CRGB::Red, true);
+      sRects[x] = new spriteRectangle(sRectSize, sRectSize, CRGB::Red, true);
     }
     reset();
   }
 
-  rectangleMode::~rectangleMode(){
+  modeRectangle::~modeRectangle(){
     for(int i = 0; i < sRectCount; i++){
       delete[] sRects[i];
     }
     delete[] sRects;
   }
 
-void rectangleMode::advance(){
+void modeRectangle::advance(){
   for(int x = 0; x < sRectCount; x++) sRects[x]->paint();
 
   FastLED.show();
 }
 
-void rectangleMode::reset(){
+void modeRectangle::reset(){
   for(int x = 0; x < sRectCount; x++)
  {
    sRects[x]->locX = 0;

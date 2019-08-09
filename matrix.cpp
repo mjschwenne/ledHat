@@ -1,4 +1,4 @@
-#include "ledSetup.h"
+#include "matrix.h"
 
 int panelIndex[4] = {0, 128, 384, 640};
 

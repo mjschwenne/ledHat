@@ -1,12 +1,12 @@
-#include "rectangle.h"
+#include "spriteRectangle.h"
 
-rectangle :: rectangle(int width, int height, CRGB color, bool filled) :
+spriteRectangle :: spriteRectangle(int width, int height, CRGB color, bool filled) :
   sprite(width, height),
   sColor(color),
   sFilled(filled)
   {}
 
-void rectangle::paint(){
+void spriteRectangle::paint(){
   if(!sFilled){
     for(int x = 0; x < width; x++){
       setSpritePixel(x, 0, sColor);
@@ -27,6 +27,6 @@ void rectangle::paint(){
   }
 }
 
-void rectangle::setColor(CRGB color){
+void spriteRectangle::setColor(CRGB color){
   sColor = color;
 }

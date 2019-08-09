@@ -1,10 +1,10 @@
-#include "ledSetup.h"
-#include "rectangleMode.h"
+#include "matrix.h"
+#include "modeRectangle.h"
 
 void setup() {
   setupLED();
-  rectangleMode * rectMode = new rectangleMode(1, 5);
-  rectMode->advance();
+  modeRectangle * mRect = new modeRectangle(1, 5);
+  mRect->advance();
 }
 
 void loop() {

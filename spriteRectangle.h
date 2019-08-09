@@ -1,8 +1,8 @@
 #include "sprite.h"
 
-class rectangle : public sprite{
+class spriteRectangle : public sprite{
 public:
-  rectangle(int width, int height, CRGB color, bool filled = false);
+  spriteRectangle(int width, int height, CRGB color, bool filled = false);
 
   virtual void paint();
 
