@@ -18,8 +18,8 @@ private:
   int sRectCount;
   int sRectSize;
 
-  int sStepX;
-  int sStepY;
+  int sStepR;
+  int sStepC;
 };
 
 #endif

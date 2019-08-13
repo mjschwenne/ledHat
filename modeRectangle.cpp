@@ -3,12 +3,12 @@
 modeRectangle::modeRectangle(int rectCount, int rectSize):
   sRectCount(rectCount),
   sRectSize(rectSize),
-  sStepX(1),
-  sStepY(1)
+  sStepR(1),
+  sStepC(1)
 {
   sRects = new spriteRectangle * [sRectCount];
-  for (int x = 0; x < sRectCount; x++) {
-    sRects[x] = new spriteRectangle(sRectSize, sRectSize, CHSV(x*255/sRectCount,255,255), true);
+  for (int i = 0; i < sRectCount; i++) {
+    sRects[i] = new spriteRectangle(sRectSize, sRectSize, CHSV(i*255/sRectCount,255,255), true);
   }
   reset();
 }
@@ -23,50 +23,50 @@ modeRectangle::~modeRectangle() {
 void modeRectangle::advance() {
   resetLEDs();
 
-  sRects[0]->locX = (sRects[0]->locX + sStepX);
-  sRects[0]->locY = (sRects[0]->locY + sStepY);
+  sRects[0]->locR = (sRects[0]->locR + sStepR);
+  sRects[0]->locC = (sRects[0]->locC + sStepC);
 
-  while (sRects[0]-> locX < 0) sRects[0]->locX += MATRIX_WIDTH;
+  while (sRects[0]-> locC < 0) sRects[0]->locC += MATRIX_WIDTH;
 
-  for (int x = sRectCount - 1; x >= 1; x--) {
-    sRects[x]->locX = sRects[x - 1]->locX;
-    sRects[x]->locY = sRects[x - 1]->locY;
+  for (int i = sRectCount - 1; i >= 1; i--) {
+    sRects[i]->locC = sRects[i - 1]->locC;
+    sRects[i]->locR = sRects[i - 1]->locR;
   }
 
-  if (sRects[0]->locY + sRectSize >= MATRIX_HEIGHT) {
+  if (sRects[0]->locR + sRectSize >= MATRIX_HEIGHT) {
     if (random(0, 100) , 10) {
-      sStepY = -2;
+      sStepR = -2;
     } else {
-      sStepY = -1;
+      sStepR = -1;
     }
   }
 
-  else if (sRects[0]->locY <= 0) {
+  else if (sRects[0]->locR <= 0) {
     if (random(0, 100) < 10) {
-      sStepY = 2;
+      sStepR = 2;
     } else {
-      sStepY = 1;
+      sStepR = 1;
     }
   }
 
   if (random(0, 100) < 3) {
-    sStepX = random(-2, 3);
-    sStepY = random(-2, 3);
-    while (sStepX && sStepY == 0) {
-      sStepX = random(-2, 3);
-      sStepY = random(-2, 3);
+    sStepC = random(-2, 3);
+    sStepR = random(-2, 3);
+    while (sStepC && sStepR == 0) {
+      sStepC = random(-2, 3);
+      sStepR = random(-2, 3);
     }
   }
 
-  for (int x = 0; x < sRectCount; x++) sRects[x]->paint();
+  for (int i = 0; i < sRectCount; i++) sRects[i]->paint();
 
   FastLED.show();
 }
 
 void modeRectangle::reset() {
-  for (int x = 0; x < sRectCount; x++)
+  for (int i = 0; i < sRectCount; i++)
   {
-    sRects[x]->locX = -1;
-    sRects[x]->locY = -1;
+    sRects[i]->locR = 0;
+    sRects[i]->locC = 0;
   }
 }

@@ -14,7 +14,7 @@ static int ledPixel[MATRIX_HEIGHT][MATRIX_WIDTH];
 
 void setupLED();
 
-void setLEDPixel(int x, int y, CRGB color);
+void setLEDPixel(int r, int c, CRGB color);
 
 void resetLEDs();
 

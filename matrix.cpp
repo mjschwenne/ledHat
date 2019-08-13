@@ -4,44 +4,71 @@ int panelIndex[4] = {0, 128, 384, 640};
 
 void setupLED(){
   FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
-  FastLED.setBrightness(25);
+  FastLED.setBrightness(10);
   
-  for (int x = 0; x < 16; x++) {
+  for (int r = 0; r < 16; r++) {
     // even rows
-    if (x % 2 == 0) {
+    if (r % 2 == 0) {
       // 8x8 panels
-      for (int y = 0; y < 8; y++)
-        ledPixel[x][7 - y] = panelIndex[0]++;
+      for (int c = 0; c < 8; c++){
+        ledPixel[r][7 - c] = panelIndex[0];
+        panelIndex[0]++;
+      }
       // first 16x16 panel
-      for (int y = 0; y < 16; y++)
-        ledPixel[x][23 - y] = panelIndex[1]++;
+      for (int c = 0; c < 16; c++){
+        ledPixel[r][23 - c] = panelIndex[1];
+        panelIndex[1]++;
+      }
       // second 16x16 panel
-      for (int y = 0; y < 16; y++)
-        ledPixel[x][39 - y] = panelIndex[2]++;
+      for (int c = 0; c < 16; c++){
+        ledPixel[r][39 - c] = panelIndex[2];
+        panelIndex[2]++;
+      }
       // third 16x16 panel
-      for (int y = 0; y < 16; y++)
-        ledPixel[x][55 - y] = panelIndex[3]++;
+      for (int c = 0; c < 16; c++){
+        ledPixel[r][55 - c] = panelIndex[3];
+        panelIndex[3]++;
+      }
     }
     // odd rows
     else {
       // 8x8 panels
-      for (int y = 0; y < 8; y++)
-        ledPixel[x][y] = panelIndex[0]++;
+      for (int c = 0; c < 8; c++){
+        ledPixel[r][c] = panelIndex[0];
+        panelIndex[0]++;
+      }
       // first 16x16 panel
-      for (int y = 8; y < 24; y++)
-        ledPixel[x][y] = panelIndex[1]++;
+      for (int c = 8; c < 24; c++){
+        ledPixel[r][c] = panelIndex[1];
+        panelIndex[1]++;
+      }
       // second 16x16 panel
-      for (int y = 24; y < 40; y++)
-        ledPixel[x][y] = panelIndex[2]++;
+      for (int c = 24; c < 40; c++){
+        ledPixel[r][c] = panelIndex[2];
+        panelIndex[2]++;
+      }
       // third 16x16 panel
-      for (int y = 40; y < 56; y++)
-        ledPixel[x][y] = panelIndex[3]++;
+      for (int c = 40; c < 56; c++){
+        ledPixel[r][c] = panelIndex[3];
+        panelIndex[3]++;
+      }
     }
   }
+//  Serial.begin(9600);
+//  delay(5000);
+//  for( int r = 0; r < 16; r++){
+//    for(int c = 0; c < 56; c++) {
+//      int t = ledPixel[r][c];
+//        Serial.print(t, DEC);
+//        Serial.print(",\t");
+//        delay(10);
+//      }
+//      Serial.print("\n");
+//  }
 }
 
-void setLEDPixel(int x, int y, CRGB color){
-  int i = ledPixel[y][x]; //THIS SEEMS BACKWARDS, IT IS A QUICK FIX
+void setLEDPixel(int r, int c, CRGB color){
+  int i = ledPixel[r][c];
   leds[i] = color;
 }
 

@@ -8,20 +8,20 @@ spriteRectangle :: spriteRectangle(int width, int height, CRGB color, bool fille
 
 void spriteRectangle::paint(){
   if(!sFilled){
-    for(int x = 0; x < width; x++){
-      setSpritePixel(x, 0, sColor);
-      setSpritePixel(x, height - 1, sColor);
+    for(int r = 0; r < width; r++){
+      setSpritePixel(r, 0, sColor);
+      setSpritePixel(r, height - 1, sColor);
     }
-    for(int y = 0; y < height; y++){
-      setSpritePixel(0, y, sColor);
-      setSpritePixel(width - 1, y, sColor);
+    for(int c = 0; c < height; c++){
+      setSpritePixel(0, c, sColor);
+      setSpritePixel(width - 1, c, sColor);
     }
   } else {
-    for(int x = 0; x < width; x++)
+    for(int c = 0; c < width; c++)
     {
-      for(int y = 0; y < height; y++)
+      for(int r = 0; r < height; r++)
       {
-        setSpritePixel(x, y, sColor);
+        setSpritePixel(r, c, sColor);
       }
     }
   }

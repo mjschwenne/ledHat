@@ -7,18 +7,18 @@
 
 class sprite {
 public:
-  sprite(int width, int height, int locX = 0, int locY = 0);
+  sprite(int width, int height, int locR = 0, int locC = 0);
 
   const int width;
   const int height;
 
-  int locX;
-  int locY;
+  int locR;
+  int locC;
 
   virtual void paint() = 0;
 
 protected:
-  void setSpritePixel(int x, int y, CRGB color);
+  void setSpritePixel(int r, int c, CRGB color);
 };
 
 #endif
