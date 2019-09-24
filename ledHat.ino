@@ -2,7 +2,7 @@
 #include "modeRectangle.h"
 #include "modeMTU.h"
 
-modeRectangle * mRect = new modeRectangle(16, 4);
+modeRectangle * mRect = new modeRectangle(48, 4);
 modeMTU * mMTU = new modeMTU();
 
 void setup() {
@@ -20,6 +20,6 @@ void setup() {
 }
 
 void loop() {
-//  mRect->advance();
-//  delay(500);
+  mMTU->advance();
+  delay(250);
 }

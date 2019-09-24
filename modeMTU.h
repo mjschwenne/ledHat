@@ -16,6 +16,7 @@ public:
 
 private:
   spriteMTU * sMTU;
+  spriteMTU * sMTU2;
 };
 
 #endif

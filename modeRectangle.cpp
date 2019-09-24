@@ -52,7 +52,7 @@ void modeRectangle::advance() {
   if (random(0, 100) < 3) {
     sStepC = random(-2, 3);
     sStepR = random(-2, 3);
-    while (sStepC && sStepR == 0) {
+    while (sStepC == 0 || sStepR == 0) {
       sStepC = random(-2, 3);
       sStepR = random(-2, 3);
     }
