@@ -1,9 +1,14 @@
 #include "matrix.h"
 #include "modeRectangle.h"
 #include "modeMTU.h"
+#include "modeEye.h"
 
-modeRectangle * mRect = new modeRectangle(48, 4);
-modeMTU * mMTU = new modeMTU();
+#include <cstdlib>
+
+//modeRectangle * mRect = new modeRectangle(48, 4);
+//modeMTU * mMTU = new modeMTU();
+modeEye * mEye = new modeEye();
+int count = 0;
 
 void setup() {
   setupLED();
@@ -11,15 +16,33 @@ void setup() {
   resetLEDs();
 //  for (int r = 0; r < 16; r++) {
 //    for (int c = 0; c < 56; c++) {
-//      setLEDPixel(r, c, CRGB::Yellow);
+//      setLEDPixel(r, c, CRGB::ForestGreen);
 //      FastLED.show();
 //      delay(50);
 //    }
 //  }
-  mMTU->advance();
 }
 
 void loop() {
-  mMTU->advance();
-  delay(250);
+  switch (random(0, 3)){
+    
+    case 0:
+    {
+      mEye->advanceBlink();
+      break;
+    }
+
+    case 1:
+    {
+      mEye->advanceL();
+      break;
+    }
+
+    case 2:
+    {
+      mEye->advanceR();
+      break;
+    }
+  }
+  delay(random(2000, 10000));
 }
