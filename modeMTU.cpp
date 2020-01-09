@@ -23,6 +23,7 @@ void modeMTU::advance(){
   sMTU2->locC += 1;
   sMTU2->paint();
   FastLED.show();
+  delay(200);
 }
 
 void modeMTU::reset(){

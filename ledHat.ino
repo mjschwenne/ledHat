@@ -6,8 +6,8 @@
 #include <cstdlib>
 
 //modeRectangle * mRect = new modeRectangle(48, 4);
-//modeMTU * mMTU = new modeMTU();
-modeEye * mEye = new modeEye();
+modeMTU * mMTU = new modeMTU();
+//modeEye * mEye = new modeEye();
 int count = 0;
 
 void setup() {
@@ -24,25 +24,26 @@ void setup() {
 }
 
 void loop() {
-  switch (random(0, 3)){
-    
-    case 0:
-    {
-      mEye->advanceBlink();
-      break;
-    }
-
-    case 1:
-    {
-      mEye->advanceL();
-      break;
-    }
-
-    case 2:
-    {
-      mEye->advanceR();
-      break;
-    }
-  }
-  delay(random(2000, 10000));
+  mMTU -> advance();
+//  switch (random(0, 3)){
+//    
+//    case 0:
+//    {
+//      mEye->advanceBlink();
+//      break;
+//    }
+//
+//    case 1:
+//    {
+//      mEye->advanceL();
+//      break;
+//    }
+//
+//    case 2:
+//    {
+//      mEye->advanceR();
+//      break;
+//    }
+//  }
+//  delay(random(2000, 10000));
 }
