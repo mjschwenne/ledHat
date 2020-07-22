@@ -6,7 +6,7 @@
 
 class modeRectangle{
 public:
-  modeRectangle(int rectCount, int rectSize);
+  modeRectangle();
   ~modeRectangle();
 
   virtual void advance();

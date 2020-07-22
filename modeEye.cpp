@@ -12,6 +12,27 @@ modeEye::~modeEye(){
   delete[] sEye;
 }
 
+void modeEye::advance(){
+  switch (random(0, 3)){   
+    case 0:
+    {
+      advanceBlink();
+      break;
+    }
+    case 1:
+    {
+      advanceL();
+      break;
+    }
+    case 2:
+    {
+      advanceR();
+      break;
+    }
+  }
+  delay(random(2000, 10000));
+}
+
 void modeEye::advanceBlink(){
   resetLEDs();
   int frameDelay = 500;
@@ -64,6 +85,7 @@ void modeEye::advanceBlink(){
 }
 
 void modeEye::advanceL(){
+  resetLEDs();
   int frameDelay = 500;
   
   sEye->state = stateEyeOpen;
@@ -83,6 +105,7 @@ void modeEye::advanceL(){
 }
 
 void modeEye::advanceR(){
+   resetLEDs();
    int frameDelay = 500;
   
   sEye->state = stateEyeOpen;

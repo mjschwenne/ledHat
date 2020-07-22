@@ -20,88 +20,33 @@ void setup() {
   
   setupLED();
   resetLEDs();
-//  for (int r = 0; r < 16; r++) {
-//    for (int c = 0; c < 56; c++) {
-//      setLEDPixel(r, c, CRGB::ForestGreen);
-//      FastLED.show();
-//      delay(50);
-//    }
-//  }
 }
 
 void loop() {
   switch (readSwitch()){
     case 0 :
-      for (int r = 0; r < 16; r++) {
-        for (int c = 0; c < 56; c++) {
-          setLEDPixel(r, c, CRGB::ForestGreen);
-        }
-      }
-      FastLED.show();
-      delay(1000);
+      mHB -> advance();
       break;
     case 1 :
-      for (int r = 0; r < 16; r++) {
-        for (int c = 0; c < 56; c++) {
-          setLEDPixel(r, c, CRGB::Red);
-        }
-      }
-      FastLED.show();
-      delay(1000);
+      mHB -> advance();
       break;
     case 2 :
-      for (int r = 0; r < 16; r++) {
-        for (int c = 0; c < 56; c++) {
-          setLEDPixel(r, c, CRGB::Blue);
-        }
-      }
-      FastLED.show();
-      delay(1000);
+      mEye -> advance();
       break;
     case 3 :
-      for (int r = 0; r < 16; r++) {
-        for (int c = 0; c < 56; c++) {
-          setLEDPixel(r, c, CRGB::White);
-        }
-      }
-      FastLED.show();
-      delay(1000);
+      mEye -> advance();
       break;
     case 4 :
-      for (int r = 0; r < 16; r++) {
-        for (int c = 0; c < 56; c++) {
-          setLEDPixel(r, c, CRGB::Yellow);
-        }
-      }
-      FastLED.show();
-      delay(1000);
+      mMTU -> advance();
       break;
     case 5 :
-      for (int r = 0; r < 16; r++) {
-        for (int c = 0; c < 56; c++) {
-          setLEDPixel(r, c, CRGB::Cyan);
-        }
-      }
-      FastLED.show();
-      delay(1000);
+      mMTU -> advance();
       break;
     case 6 :
-      for (int r = 0; r < 16; r++) {
-        for (int c = 0; c < 56; c++) {
-          setLEDPixel(r, c, CRGB::Magenta);
-        }
-      }
-      FastLED.show();
-      delay(1000);
+      mRec -> advance();
       break;
     case 7 :
-      for (int r = 0; r < 16; r++) {
-        for (int c = 0; c < 56; c++) {
-          setLEDPixel(r, c, CRGB::Plum);
-        }
-      }
-      FastLED.show();
-      delay(1000);
+      mRec -> advance();
       break;
     default :
       resetLEDs();

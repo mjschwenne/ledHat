@@ -1,8 +1,8 @@
 #include "modeRectangle.h"
 
-modeRectangle::modeRectangle(int rectCount, int rectSize):
-  sRectCount(rectCount),
-  sRectSize(rectSize),
+modeRectangle::modeRectangle():
+  sRectCount(32),
+  sRectSize(4),
   sStepR(1),
   sStepC(1)
 {
@@ -61,6 +61,7 @@ void modeRectangle::advance() {
   for (int i = 0; i < sRectCount; i++) sRects[i]->paint();
 
   FastLED.show();
+  delay(500);
 }
 
 void modeRectangle::reset() {

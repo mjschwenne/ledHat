@@ -18,6 +18,8 @@ public:
 
   ~modeEye();
 
+  virtual void advance();
+
   virtual void advanceBlink();
 
   virtual void advanceL();
