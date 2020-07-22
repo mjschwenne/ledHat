@@ -4,7 +4,7 @@ int panelIndex[4] = {0, 128, 384, 640};
 
 void setupLED(){
   FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
-  FastLED.setBrightness(20);
+  FastLED.setBrightness(10);
   
   for (int r = 0; r < 16; r++) {
     // even rows
