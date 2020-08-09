@@ -16,6 +16,8 @@ void setupLED();
 
 void setLEDPixel(int r, int c, CRGB color);
 
+CRGB getLEDPixel(int r, int c);
+
 void resetLEDs();
 
 #endif

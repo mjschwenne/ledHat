@@ -5,7 +5,7 @@ int panelIndex[4] = {0, 128, 384, 640};
 void setupLED(){
   FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
   FastLED.setBrightness(10);
-  
+
   for (int r = 0; r < 16; r++) {
     // even rows
     if (r % 2 == 0) {
@@ -54,22 +54,15 @@ void setupLED(){
       }
     }
   }
-//  Serial.begin(9600);
-//  delay(5000);
-//  for( int r = 0; r < 16; r++){
-//    for(int c = 0; c < 56; c++) {
-//      int t = ledPixel[r][c];
-//        Serial.print(t, DEC);
-//        Serial.print(",\t");
-//        delay(10);
-//      }
-//      Serial.print("\n");
-//  }
 }
 
 void setLEDPixel(int r, int c, CRGB color){
   int i = ledPixel[r][c];
   leds[i] = color;
+}
+
+CRGB getLEDPixel(int r, int c){
+  return leds[ledPixel[r][c]];
 }
 
 void resetLEDs (){

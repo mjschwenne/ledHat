@@ -3,15 +3,15 @@
 
 #include "modeRectangle.h"
 #include "modeMTU.h"
-#include "modeHB.h"
 #include "modeEye.h"
+#include "modeTECH.h"
 
 int inPins[] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 
-modeHB * mHB = new modeHB();
 modeMTU * mMTU = new modeMTU();
 modeRectangle * mRec = new modeRectangle();
 modeEye * mEye = new modeEye();
+modeTECH * mTECH = new modeTECH();
 
 void setup() {
   for (int i = 0; i < 8; i++){
@@ -25,10 +25,10 @@ void setup() {
 void loop() {
   switch (readSwitch()){
     case 0 :
-      mHB -> advance();
+      mTECH -> advance();
       break;
     case 1 :
-      mHB -> advance();
+      mTECH -> advance();
       break;
     case 2 :
       mEye -> advance();
