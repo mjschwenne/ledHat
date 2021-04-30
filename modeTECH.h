@@ -1,6 +1,10 @@
 #include "Mode.h"
 #include "spriteTECH.h"
+
+#ifndef SPRITESTRIPES_H
 #include "spriteStripes.h"
+#define SPRITESTRIPES_H
+#endif
 
 #ifndef MODETECH_H
 #define MODETECH_H

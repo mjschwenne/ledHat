@@ -13,6 +13,7 @@ modeTECH::modeTECH(){
 
 modeTECH::~modeTECH(){
   delete[] sTECH;
+  delete[] sStripes;
 }
 
 void modeTECH::advance(){
