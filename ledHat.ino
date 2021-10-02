@@ -31,10 +31,12 @@ void loop() {
       mTECH -> advance();
       break;
     case 2 :
-      mGrad -> advance();
+      resetLEDs();
+      FastLED.show();
       break;
     case 3 :
-      mGrad -> advance();
+      resetLEDs();
+      FastLED.show();
       break;
     case 4 :
       mMTU -> advance();
@@ -50,6 +52,7 @@ void loop() {
       break;
     default :
       resetLEDs();
+      FastLED.show();
   }
 }
 

@@ -1,4 +1,4 @@
-#include "Mode.h"
+#include "mode.h"
 #include "spriteGrad.h"
 
 #ifndef SPRITESTRIPES_H
