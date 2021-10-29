@@ -7,7 +7,7 @@
 #define MATRIX_HEIGHT 16
 #define NUM_LEDS MATRIX_WIDTH * MATRIX_HEIGHT
 #define DATA_PIN 13
-#define BRIGHTNESS 20
+#define BRIGHTNESS 10
 
 static CRGB leds[NUM_LEDS];
 

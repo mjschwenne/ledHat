@@ -4,13 +4,14 @@
 #include "modeRectangle.h"
 #include "modeMTU.h"
 #include "modeGrad.h"
+#include "modeEye.h"
 #include "modeTECH.h"
 
 int inPins[] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 
 modeMTU * mMTU = new modeMTU();
 modeRectangle * mRec = new modeRectangle();
-modeGrad * mGrad = new modeGrad();
+modeEye * mEye = new modeEye();
 modeTECH * mTECH = new modeTECH();
 
 void setup() {
@@ -31,12 +32,10 @@ void loop() {
       mTECH -> advance();
       break;
     case 2 :
-      resetLEDs();
-      FastLED.show();
+      mEye -> advance();
       break;
     case 3 :
-      resetLEDs();
-      FastLED.show();
+      mEye -> advance();
       break;
     case 4 :
       mMTU -> advance();
